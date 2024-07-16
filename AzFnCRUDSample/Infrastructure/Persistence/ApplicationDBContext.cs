@@ -1,6 +1,7 @@
 ﻿using AzFnCRUDSample.Domain;
 using AzFnCRUDSample.Service.Common.Interface;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Threading.Tasks;
 
 namespace AzFnCRUDSample.Infrastructure.Persistence
@@ -10,6 +11,15 @@ namespace AzFnCRUDSample.Infrastructure.Persistence
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options)
         {
         }
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        string connectionString = Environment.GetEnvironmentVariable("MyConnectionString");
+        //        optionsBuilder.UseSqlServer(connectionString);
+        //    }
+        //}
 
         public DbSet<ItemType> ItemTypes { get; set; }
 
