@@ -17,7 +17,7 @@ namespace AzFnCRUDSample.Infrastructure.Persistence
         {
             return base.Set<TEntity>();
         }
-        //saveasync
+
         public async Task<int> SaveChangesAsync()
         {
             return await base.SaveChangesAsync();
