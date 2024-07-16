@@ -21,6 +21,12 @@ namespace AzFnCRUDSample.Infrastructure.Persistence
         //    }
         //}
 
+        //model builder to remove pluralizing table names
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ItemType>().ToTable("ItemType");
+        }
+
         public DbSet<ItemType> ItemTypes { get; set; }
 
         public DbSet<TEntity> Set<TEntity>() where TEntity : class
