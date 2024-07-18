@@ -56,6 +56,20 @@ namespace AzFnCRUDSample
             var response = await _menuService.GetItemTypesAsync();
             return new OkObjectResult(response);
         }
+
+
+        [FunctionName("GetItems")]
+        [OpenApiOperation(operationId: "GetItems", tags: new[] { "name" })]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "text/plain", bodyType: typeof(string), Description = "The OK response")]
+        public async Task<IActionResult> GetItems(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req)
+        {
+            // get all items
+            _logger.LogInformation("C# HTTP trigger function processed a request.");
+
+            var items = await _menuService.GetItemsAsync();
+            return new OkObjectResult(items);
+        }
     }
 }
 

@@ -25,9 +25,11 @@ namespace AzFnCRUDSample.Infrastructure.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ItemType>().ToTable("ItemType");
+            modelBuilder.Entity<ItemView>().ToTable("ItemView");
         }
 
         public DbSet<ItemType> ItemTypes { get; set; }
+        public DbSet<ItemView> ItemViews { get; set; }
 
         public DbSet<TEntity> Set<TEntity>() where TEntity : class
         {

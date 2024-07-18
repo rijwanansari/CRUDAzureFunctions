@@ -102,4 +102,18 @@ internal class MenuService (IUnitOfWork unitOfWork, ILogger<MenuService> logger)
 
 
     }
+
+    public async Task<ResponseModel<List<ItemView>>> GetItemsAsync()
+    {
+        try
+        {
+            var items = _unitOfWork.Repository<ItemView>().GetAll();
+            return ResponseModel<List<ItemView>>.SuccessResponse("Items", items.ToList());
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in GetItemsAsync");
+            return ResponseModel<List<ItemView>>.FailureResponse("Internal Server Error");
+        }
+    }
 }

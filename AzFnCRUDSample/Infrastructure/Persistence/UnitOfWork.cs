@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AzFnCRUDSample.Infrastructure.Persistence;
 
-internal class UnitOfWork : IUnitOfWork, IDisposable
+public class UnitOfWork : IUnitOfWork, IDisposable
 {
     private readonly ApplicationDBContext _context;
     private IDbContextTransaction _dbContextTransaction;

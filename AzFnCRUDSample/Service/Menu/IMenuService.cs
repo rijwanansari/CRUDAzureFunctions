@@ -12,5 +12,6 @@ namespace AzFnCRUDSample.Service.Menu
         Task<ResponseModel<ItemType>> GetItemTypeAsync(int id);
         Task<ResponseModel<ItemType>> UpdateItemTypeAsync(ItemType itemType);
         Task<ResponseModel<bool>> DeleteItemTypeAsync(int id);
+        Task<ResponseModel<List<ItemView>>> GetItemsAsync();
     }
 }
