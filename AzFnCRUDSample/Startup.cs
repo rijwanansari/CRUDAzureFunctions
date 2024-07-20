@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using AzFnCRUDSample.Service.Menu;
 using AzFnCRUDSample.Service.Common.Interface;
+using AzFnCRUDSample.Service.Cart;
 
 [assembly: FunctionsStartup(typeof(AzFnCRUDSample.Startup))]
 namespace AzFnCRUDSample
@@ -24,6 +25,7 @@ namespace AzFnCRUDSample
             builder.Services.AddScoped<IApplicationDBContext, ApplicationDBContext>();
             builder.Services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
             builder.Services.AddScoped<IMenuService, MenuService>();
+            builder.Services.AddScoped<ICartService, CartService>();
         }
     }
 }

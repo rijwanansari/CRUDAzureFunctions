@@ -8,6 +8,8 @@ namespace AzFnCRUDSample.Service.Common.Interface
     {
         DbSet<ItemType> ItemTypes { get; set; }
         DbSet<ItemView> ItemViews { get; set; }
+        DbSet<OrderKey> OrderKeys { get; set; }
+        DbSet<OrderDetail> OrderDetails { get; set; }
         DbSet<TEntity> Set<TEntity>() where TEntity : class;
         Task<int> SaveChangesAsync();
     }

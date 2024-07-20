@@ -26,11 +26,14 @@ namespace AzFnCRUDSample.Infrastructure.Persistence
         {
             modelBuilder.Entity<ItemType>().ToTable("ItemType");
             modelBuilder.Entity<ItemView>().ToTable("ItemView");
+            modelBuilder.Entity<OrderKey>().ToTable("OrderKey");
+            modelBuilder.Entity<OrderDetail>().ToTable("OrderDetail");
         }
 
         public DbSet<ItemType> ItemTypes { get; set; }
         public DbSet<ItemView> ItemViews { get; set; }
-
+        public DbSet<OrderKey> OrderKeys { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<TEntity> Set<TEntity>() where TEntity : class
         {
             return base.Set<TEntity>();
