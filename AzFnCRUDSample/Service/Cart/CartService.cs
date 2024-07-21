@@ -21,14 +21,14 @@ internal class CartService(IUnitOfWork unitOfWork, ILogger<CartService> logger) 
             {
                 OrderId = cartOrderRequest.OrderId,
                 OrderDateTime = cartOrderRequest.OrderDateTime,
-                OrderTotal = cartOrderRequest.OrderTotal,
+                OrderTotal = cartOrderRequest.OrderDetails.Sum(x => x.Price),//reduntant
                 UserId = cartOrderRequest.UserId,
-                TaxAmount = cartOrderRequest.TaxAmount,
                 IsConfirmed = cartOrderRequest.IsConfirmed,
                 IsCompleted = cartOrderRequest.IsCompleted,
                 FutureOrderDateTime = cartOrderRequest.FutureOrderDateTime,
                 UserRemark = cartOrderRequest.UserRemark,
-                TotalPrice = cartOrderRequest.TotalPrice,
+                TotalPrice = cartOrderRequest.OrderDetails.Sum(x => x.Price),
+                TaxAmount= cartOrderRequest.OrderDetails.Sum(x => x.Tax),
                 Floor = cartOrderRequest.Floor,
                 Building = cartOrderRequest.Building
             };
