@@ -31,7 +31,7 @@ namespace AzFnCRUDSample
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req)
         {
-            _logger.LogInformation("C# HTTP trigger function processed a request.");
+            _logger.LogInformation("MenuFn HTTP trigger function processed a request.");
 
             string name = req.Query["name"];
 
