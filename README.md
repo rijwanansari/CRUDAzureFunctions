@@ -1,1 +1,1 @@
-# SampleAzFunctions
+# SampleCRUD Azure Functions
